@@ -1,0 +1,51 @@
+name:                FileTransfer
+version:             0.1.0.0
+github:              "Goblin80/FileTransfer"
+license:             BSD3
+author:              "Mahmoud Khaled"
+maintainer:          "mahmoud_khld@yahoo.com"
+copyright:           "Copyright (c) 2018 Mahmoud Khaled"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Your Projects Category
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/Goblin80/FileTransfer#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- network-simple
+- directory
+
+library:
+  source-dirs: src
+
+executables:
+  FileTransfer-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - FileTransfer
+
+tests:
+  FileTransfer-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - FileTransfer
